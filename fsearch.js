@@ -249,8 +249,13 @@ var retryConfigSearchIndex = (function () {
 
         request(_params, function (error, response) {
 
-            if (error) {
-                console.log('count, code:', count, (error.code) ? error.code : error);
+            if (error || response.statusCode != 201) {
+                if (error) {
+                    console.log('count, err code:', count, (error.code) ? error.code : error);
+                }
+                if (response) {
+                    console.log('count, statuscode:', count, (response.statusCode) ? response.statusCode : response);                    
+                }
 
                 if (count++ < max) {
                     return setTimeout(function () {
@@ -260,7 +265,7 @@ var retryConfigSearchIndex = (function () {
                     return next('max retries reached');
                 }
             }
-
+            console.log('statuscode:', (response.statusCode) ? response.statusCode : response);   
             next(null, response);
         });
     };

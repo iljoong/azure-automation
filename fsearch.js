@@ -313,7 +313,7 @@ function configSearchIndex(schkey, paramsSearch, callback) {
 function configSearchDS(schkey, paramsSearch, callback) {
 
     var params = {
-        uri: "https://" + paramsSearch.searchServiceName + ".search.windows.net/datasources?api-version=2015-02-28-Preview",
+        uri: "https://" + paramsSearch.searchServiceName + ".search.windows.net/datasources?api-version=2016-09-01",
         method: 'POST',
         json: true,
         headers: {
@@ -341,7 +341,7 @@ function configSearchDS(schkey, paramsSearch, callback) {
 function configSearchIndexer(schkey, paramsSearch, callback) {
 
     var params = {
-        uri: "https://" + paramsSearch.searchServiceName + ".search.windows.net/indexers?api-version=2015-02-28-Preview",
+        uri: "https://" + paramsSearch.searchServiceName + ".search.windows.net/indexers?api-version=2016-09-01",
         method: 'POST',
         json: true,
         headers: {
